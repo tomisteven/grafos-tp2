@@ -15,6 +15,14 @@ public class Arista {
         return peso;
     }
 
+    public Persona getPersona1() {
+        return persona1;
+    }
+
+    public Persona getPersona2() {
+        return persona2;
+    }
+
     private int calcularSimilaridad(Persona p1, Persona p2) {
         // Implementa la fórmula de similaridad aquí
         // similaridad(i, j) = |di − dj | + |mi − mj | + |ei − ej | + |ci − cj |

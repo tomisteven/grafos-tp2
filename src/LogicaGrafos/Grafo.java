@@ -10,10 +10,11 @@ public class Grafo {
     public Grafo() {
         this.personas = new ArrayList<>();
         this.aristas = new ArrayList<>();
+
     }
 
     public void agregarPersona(Persona persona) {
-        this.personas.add(persona);
+       this.personas.add(persona);
     }
 
     public void construirAristas() {
@@ -26,6 +27,36 @@ public class Grafo {
             }
         }
     }
+//    public List<Arista> getAristas() {
+//        return aristas;
+//    }
 
-    // Resto de métodos (como obtener aristas, etc.)
+    public void obtenerAristas() {
+    	for (Arista arista : aristas) {
+			//imprimir las aristas y personas que estan conectadas
+    		System.out.println(arista.getPersona1().nombre + " esta conectado con " + arista.getPersona2().nombre);
+		}
+    }
+
+
+    public static void main(String[] args) {
+		Grafo g = new Grafo();
+        Persona p1 = new Persona("Juan", 20, 1, 1, 1, 1);
+        Persona p2 = new Persona("Maria", 30, 1, 1, 1, 1);
+        Persona p3 = new Persona("Pedro", 40, 1, 1, 1, 1);
+        Persona p4 = new Persona("Luis", 50, 1, 1, 1, 1);
+        Persona p5 = new Persona("Ana", 60, 1, 1, 1, 1);
+
+        g.agregarPersona(p1);
+        g.agregarPersona(p2);
+        g.agregarPersona(p3);
+        g.agregarPersona(p4);
+        g.agregarPersona(p5);
+
+
+        g.construirAristas();
+
+        g.obtenerAristas();
+
+	}
 }
