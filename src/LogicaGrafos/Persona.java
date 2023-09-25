@@ -33,4 +33,13 @@ public class Persona {
         return intereses;
     }
 
+	public String getInfoCompleta() {
+		String info = "";
+		info += "" + this.nombre + " - ";
+		for (Interes interes : this.intereses) {
+			info += interes.getValor() + " - " ;
+		}
+		info += "";
+		return info;
+	}
 }

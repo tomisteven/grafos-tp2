@@ -34,15 +34,12 @@ public class Grafo {
 		}
     }
 
-    public String getInfoPersonaCompleta() {
-        String info = "";
+    public ArrayList<String> getInfoPersonaCompleta() {
+        ArrayList<String> arrayDePersonas = new ArrayList<>();
         for (Persona persona : personas) {
-            info += persona.nombre + " tiene los siguientes intereses: \n";
-            for (Interes interes : persona.getIntereses()) {
-                info += interes.getNombre() + " con valor " + interes.getValor() + "\n" ;
-            }
+            arrayDePersonas.add(persona.getInfoCompleta());
         }
-        return info;
+        return arrayDePersonas;
     }
 
     public ArrayList<String> getPersonasInArray() {
@@ -60,7 +57,6 @@ public class Grafo {
 
     public void crearPersona(String nombre, int idPersona, int dI, int eI, int mI, int cI) {
         Persona persona = new Persona(nombre, idPersona, dI, eI, mI, cI);
-        /* ArrayList<> intereses = new ArrayList<>(); */
         this.personas.add(persona);
     }
 
