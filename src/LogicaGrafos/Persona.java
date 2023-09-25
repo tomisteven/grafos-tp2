@@ -14,6 +14,15 @@ public class Persona {
 		this.nombre = nombre;
 		this.idPersona = idPersona;
 		this.intereses = new ArrayList<>();
+		Interes deportivo = new Interes("Deportivo", dI);
+		Interes espectaculo = new Interes("Espectaculo", eI);
+		Interes musical = new Interes("Musical", mI);
+		Interes ciencia = new Interes("Ciencia", cI);
+		this.intereses.add(deportivo);
+		this.intereses.add(espectaculo);
+		this.intereses.add(musical);
+		this.intereses.add(ciencia);
+
 	}
 
 	public void agregarInteres(Interes interes) {
@@ -23,8 +32,5 @@ public class Persona {
 	public List<Interes> getIntereses() {
         return intereses;
     }
-
-
-
 
 }

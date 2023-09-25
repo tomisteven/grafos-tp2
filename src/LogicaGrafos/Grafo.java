@@ -1,5 +1,6 @@
 package LogicaGrafos;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,15 +8,13 @@ public class Grafo {
     private List<Persona> personas;
     private List<Arista> aristas;
 
-    public Grafo() {
+
+
+   public Grafo() {
         this.personas = new ArrayList<>();
         this.aristas = new ArrayList<>();
 
-    }
-
-    public void agregarPersona(Persona persona) {
-       this.personas.add(persona);
-    }
+   }
 
     public void construirAristas() {
         for (int i = 0; i < personas.size(); i++) {
@@ -27,9 +26,6 @@ public class Grafo {
             }
         }
     }
-//    public List<Arista> getAristas() {
-//        return aristas;
-//    }
 
     public void obtenerAristas() {
     	for (Arista arista : aristas) {
@@ -38,25 +34,34 @@ public class Grafo {
 		}
     }
 
+    public String getInfoPersonaCompleta() {
+        String info = "";
+        for (Persona persona : personas) {
+            info += persona.nombre + " tiene los siguientes intereses: \n";
+            for (Interes interes : persona.getIntereses()) {
+                info += interes.getNombre() + " con valor " + interes.getValor() + "\n" ;
+            }
+        }
+        return info;
+    }
 
-    public static void main(String[] args) {
-		Grafo g = new Grafo();
-        Persona p1 = new Persona("Juan", 20, 1, 1, 1, 1);
-        Persona p2 = new Persona("Maria", 30, 1, 1, 1, 1);
-        Persona p3 = new Persona("Pedro", 40, 1, 1, 1, 1);
-        Persona p4 = new Persona("Luis", 50, 1, 1, 1, 1);
-        Persona p5 = new Persona("Ana", 60, 1, 1, 1, 1);
+    public ArrayList<String> getPersonasInArray() {
+        ArrayList<String> nombres = new ArrayList<>();
+        String info = "";
+        for (Persona persona : personas) {
+            info += persona.nombre + " tiene los siguientes intereses: \n";
+            for (Interes interes : persona.getIntereses()) {
+                info += interes.getNombre() + " con valor " + interes.getValor() + "\n" ;
+            }
+        }
+        nombres.add(info);
+        return nombres;
+    }
 
-        g.agregarPersona(p1);
-        g.agregarPersona(p2);
-        g.agregarPersona(p3);
-        g.agregarPersona(p4);
-        g.agregarPersona(p5);
+    public void crearPersona(String nombre, int idPersona, int dI, int eI, int mI, int cI) {
+        Persona persona = new Persona(nombre, idPersona, dI, eI, mI, cI);
+        /* ArrayList<> intereses = new ArrayList<>(); */
+        this.personas.add(persona);
+    }
 
-
-        g.construirAristas();
-
-        g.obtenerAristas();
-
-	}
 }
